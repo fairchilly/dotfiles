@@ -42,13 +42,14 @@ if [[ $(uname) = Darwin ]]; then
 fi
 
 # Bash script for env terminal overwrite
+touch $HOME/container.env
 printenv > $HOME/container.env
-touch $HOME/environment.sh
-cat > $HOME/environment.sh <<- EOM
-  #!/usr/bin/env bash
-  if [ -f $HOME/container.env ]; then
-    export $(echo $(cat $HOME/container.env | sed 's/#.*//g'| xargs) | envsubst)
-  fi
-EOM
+# touch $HOME/environment.sh
+# cat > $HOME/environment.sh <<- EOM
+#   #!/usr/bin/env bash
+#   if [ -f $HOME/container.env ]; then
+#     export $(echo $(cat $HOME/container.env | sed 's/#.*//g'| xargs) | envsubst)
+#   fi
+# EOM
 
 unset DOTFILES_INSTALLER
