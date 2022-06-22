@@ -41,16 +41,4 @@ if [[ $(uname) = Darwin ]]; then
   source ./mac/mac-setup.sh
 fi
 
-# Bash script for env terminal overwrite
-touch $HOME/container.env
-chmod 755 $HOME/container.env
-printenv > $HOME/container.env
-# touch $HOME/environment.sh
-# cat > $HOME/environment.sh <<- EOM
-#   #!/usr/bin/env bash
-#   if [ -f $HOME/container.env ]; then
-#     export $(echo $(cat $HOME/container.env | sed 's/#.*//g'| xargs) | envsubst)
-#   fi
-# EOM
-
 unset DOTFILES_INSTALLER
