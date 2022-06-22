@@ -43,6 +43,7 @@ fi
 
 # Bash script for env terminal overwrite
 touch $HOME/container.env
+chmod 755 $HOME/container.env
 printenv > $HOME/container.env
 # touch $HOME/environment.sh
 # cat > $HOME/environment.sh <<- EOM
