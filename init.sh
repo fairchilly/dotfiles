@@ -41,7 +41,14 @@ if [[ $(uname) = Darwin ]]; then
   source ./mac/mac-setup.sh
 fi
 
-# Env for external terminal
+# Bash script for env terminal overwrite
 printenv > $HOME/container.env
+touch $HOME/environment.sh
+cat > $HOME/environment.sh <<- EOM
+  #!/usr/bin/env bash
+  if [ -f $HOME/container.env ]; then
+    export $(echo $(cat $HOME/container.env | sed 's/#.*//g'| xargs) | envsubst)
+  fi
+EOM
 
 unset DOTFILES_INSTALLER
