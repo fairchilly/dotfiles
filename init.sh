@@ -41,18 +41,4 @@ if [[ $(uname) = Darwin ]]; then
   source ./mac/mac-setup.sh
 fi
 
-# ENV export script
-cat > $HOME/export.sh <<- EOM
-#!/usr/bin/env bash
-EOM
-
-cat > $HOME/create.sh <<- EOM
-#!/usr/bin/env bash
-while IFS='=' read -r -d '' n v; do
-  printf "export %s=\"%s\"\n" "\$n" "\$v" >> $HOME/export.sh
-done < <(env -0)
-EOM
-
-chmod 755 $HOME/export.sh $HOME/create.sh
-
 unset DOTFILES_INSTALLER
