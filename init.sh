@@ -49,7 +49,7 @@ EOM
 cat > $HOME/create.sh <<- EOM
 #!/usr/bin/env bash
 while IFS='=' read -r -d '' n v; do
-  printf "'%s'='%s'\n" "\$n" "\$v" >> $HOME/export.sh
+  printf "export %s=\"%s\"\n" "\$n" "\$v" >> $HOME/export.sh
 done < <(env -0)
 EOM
 
