@@ -49,9 +49,9 @@ EOM
 cat > $HOME/create.sh <<- EOM
 #!/usr/bin/env bash
 while IFS='=' read -r -d line; do
-  value=${line#*=}
-  name=${line%%=*}
-  echo "export $name=\"$value\""
+  value=\${line#*=}
+  name=\${line%%=*}
+  echo "export \$name=\"\$value\""
 done < <(env -0)
 EOM
 
