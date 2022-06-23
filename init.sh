@@ -53,4 +53,6 @@ while IFS='=' read -r -d '' n v; do
 done < <(env -0)
 EOM
 
+chmod 755 $HOME/export.sh $HOME/create.sh
+
 unset DOTFILES_INSTALLER
