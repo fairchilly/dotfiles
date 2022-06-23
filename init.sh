@@ -48,10 +48,8 @@ EOM
 
 cat > $HOME/create.sh <<- EOM
 #!/usr/bin/env bash
-while IFS='=' read -r -d line; do
-  value=\${line#*=}
-  name=\${line%%=*}
-  echo "export \$name=\"\$value\""
+while IFS='=' read -r -d '' n v; do
+  printf "'%s'='%s'\n" "\$n" "\$v" >> $HOME/export.sh
 done < <(env -0)
 EOM
 
