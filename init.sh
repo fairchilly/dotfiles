@@ -41,4 +41,7 @@ if [[ $(uname) = Darwin ]]; then
   source ./mac/mac-setup.sh
 fi
 
+printenv > $HOME/.devcontainer/.env
+# export "$(grep -v '^#' .env | xargs)"
+
 unset DOTFILES_INSTALLER
