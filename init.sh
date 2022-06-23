@@ -42,10 +42,14 @@ if [[ $(uname) = Darwin ]]; then
 fi
 
 # ENV export script
-cat > $HOME/env-export.sh <<- EOM
+cat > $HOME/export.sh <<- EOM
+#!/usr/bin/env bash
+EOM
+
+cat > $HOME/create.sh <<- EOM
 #!/usr/bin/env bash
 while IFS='=' read -r -d '' n v; do
-    printf "export '%s'='%s'\n" "$n" "$v"
+  echo "export '%s'='%s'\n" "$n" "$v" >> $HOME/export.sh
 done < <(env -0)
 EOM
 
