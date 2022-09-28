@@ -24,11 +24,11 @@ if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]]
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
-# Install Pure: https://github.com/sindresorhus/pure
-if [[ ! -d "$HOME/.zsh" ]]; then
-  mkdir -p "$HOME/.zsh"
-  git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-fi
+# # Install Pure: https://github.com/sindresorhus/pure
+# if [[ ! -d "$HOME/.zsh" ]]; then
+#   mkdir -p "$HOME/.zsh"
+#   git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
+# fi
 
 # Mac-specific dependencies
 if [[ $(uname) = Darwin ]]; then
